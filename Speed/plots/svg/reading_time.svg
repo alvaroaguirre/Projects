@@ -14,15 +14,15 @@
 <rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
 <rect x='54.40' y='460.80' width='68.09' height='86.40' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #E41A1C;' />
 <rect x='136.10' y='417.27' width='68.09' height='129.93' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #377EB8;' />
-<rect x='217.80' y='412.43' width='68.09' height='134.77' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #E41A1C;' />
-<rect x='299.51' y='409.14' width='68.09' height='138.06' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #E41A1C;' />
-<rect x='381.21' y='384.07' width='68.09' height='163.13' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #377EB8;' />
+<rect x='217.80' y='409.14' width='68.09' height='138.06' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #E41A1C;' />
+<rect x='299.51' y='384.07' width='68.09' height='163.13' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #377EB8;' />
+<rect x='381.21' y='412.43' width='68.09' height='134.77' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #E41A1C;' />
 <rect x='462.91' y='138.72' width='68.09' height='408.48' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #377EB8;' />
 <rect x='544.61' y='79.80' width='68.09' height='467.40' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #E41A1C;' />
 <text x='271.32' y='19.41' style='font-size: 14.40px; font-weight: bold; font-family: Arial;' textLength='206.16px' lengthAdjust='spacingAndGlyphs'>Loading time relative to fastest</text>
 <text x='124.96' y='573.12' style='font-size: 12.00px; font-family: Arial;' textLength='8.67px' lengthAdjust='spacingAndGlyphs'>R</text>
-<text x='280.36' y='573.12' style='font-size: 12.00px; font-family: Arial;' textLength='24.68px' lengthAdjust='spacingAndGlyphs'>Julia</text>
-<text x='437.42' y='573.12' style='font-size: 12.00px; font-family: Arial;' textLength='37.36px' lengthAdjust='spacingAndGlyphs'>Python</text>
+<text x='274.02' y='573.12' style='font-size: 12.00px; font-family: Arial;' textLength='37.36px' lengthAdjust='spacingAndGlyphs'>Python</text>
+<text x='443.76' y='573.12' style='font-size: 12.00px; font-family: Arial;' textLength='24.68px' lengthAdjust='spacingAndGlyphs'>Julia</text>
 <text x='601.50' y='573.12' style='font-size: 12.00px; font-family: Arial;' textLength='36.02px' lengthAdjust='spacingAndGlyphs'>Matlab</text>
 <line x1='28.80' y1='547.20' x2='28.80' y2='28.80' style='stroke-width: 0.75;' />
 <line x1='28.80' y1='547.20' x2='21.60' y2='547.20' style='stroke-width: 0.75;' />
@@ -46,9 +46,9 @@
 </defs>
 <g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='76.76' y='456.40' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>1.00</text></g>
 <g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='158.47' y='412.87' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>1.50</text></g>
-<g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='240.17' y='408.04' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>1.56</text></g>
-<g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='321.87' y='404.74' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>1.60</text></g>
-<g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='403.57' y='379.68' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>1.89</text></g>
+<g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='240.17' y='404.74' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>1.60</text></g>
+<g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='321.87' y='379.68' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>1.89</text></g>
+<g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='403.57' y='408.04' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>1.56</text></g>
 <g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='485.28' y='134.32' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>4.73</text></g>
 <g clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)'><text x='566.98' y='75.41' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>5.41</text></g>
 <polygon points='36.90,45.90 42.30,45.90 42.30,40.50 36.90,40.50 ' style='stroke-width: 0.75; stroke: none; fill: #E41A1C;' clip-path='url(#cpMjguODB8NzIwLjAwfDU0Ny4yMHwyOC44MA==)' />

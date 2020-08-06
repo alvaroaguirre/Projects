@@ -40,7 +40,10 @@ plot_vox <- function(dt, title) {
 # Plotting both running times
 loading <- R[operation %in% c("read_uncompressed", "read_compressed"), c("language", "operation", "Median")]
 loading$Median <- loading$Median/min(loading$Median, na.rm = TRUE)
-loading <- loading[order(Median, language)]
+loading$language <- as.factor(loading$language)
+desired_order <- c("R", "Python", "Julia", "Matlab")
+loading$language <- factor(as.character(loading$language), levels = desired_order)
+loading <- loading[order(language, Median)]
 
 plot_two <- function(){
   par(mar = c(2,2,2,0))
