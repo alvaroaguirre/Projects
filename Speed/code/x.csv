@@ -1,0 +1,56 @@
+type,language,operation,time
+output,Julia,read_uncompressed,62.287518457
+output,Julia,process,9.20027578
+output,Julia,read_compressed,189.435830843
+output,R,read_uncompressed,39.76407
+output,R,process,10.56994
+output,R,read_compressed,59.73901
+output,Python,read_uncompressed, 63.052746
+output,Python,process, 11.499805
+output,Python,read_compressed, 74.240953
+output,Matlab,read_uncompressed,213.8524
+output,Matlab,process,28.3436
+[?1l>output,Julia,read_uncompressed,61.224901236
+output,Julia,process,9.108172002
+output,Julia,read_compressed,185.751124731
+output,R,read_uncompressed,38.60452
+output,R,process,10.51113
+output,R,read_compressed,59.01703
+output,Python,read_uncompressed, 62.811674
+output,Python,process, 11.384328
+output,Python,read_compressed, 73.767337
+output,Matlab,read_uncompressed,209.2897
+output,Matlab,process,29.5096
+[?1l>output,Julia,read_uncompressed,58.620275873
+output,Julia,process,9.209084301
+output,Julia,read_compressed,185.087671106
+output,R,read_uncompressed,39.07563
+output,R,process,10.5473
+output,R,read_compressed,59.05733
+output,Python,read_uncompressed, 62.037722
+output,Python,process, 11.528218
+output,Python,read_compressed, 74.084524
+output,Matlab,read_uncompressed,213.683
+output,Matlab,process,29.9172
+[?1l>output,Julia,read_uncompressed,61.308725625
+output,Julia,process,10.857450312
+output,Julia,read_compressed,185.73107464
+output,R,read_uncompressed,39.6053
+output,R,process,10.62265
+output,R,read_compressed,58.35291
+output,Python,read_uncompressed, 62.20138
+output,Python,process, 11.151098
+output,Python,read_compressed, 74.262846
+output,Matlab,read_uncompressed,212.6158
+output,Matlab,process,28.1976
+[?1l>output,Julia,read_uncompressed,61.940078627
+output,Julia,process,9.168942056
+output,Julia,read_compressed,186.346700836
+output,R,read_uncompressed,39.25191
+output,R,process,10.69478
+output,R,read_compressed,59.95907
+output,Python,read_uncompressed, 69.296731
+output,Python,process, 11.753232
+output,Python,read_compressed, 81.546591
+output,Matlab,read_uncompressed,206.7337
+output,Matlab,process,28.298

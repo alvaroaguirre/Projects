@@ -8,8 +8,9 @@ using GZip
 uncompressed() = CSV.read("crsp_daily")
 
 function processing()
-	gdf = groupby(data, [:PERMNO, :year]) 
-	combine(gdf, [:RET => mean], [:RET => std], nrow)
+	R = by(data, [:year, :PERMNO]) do data
+		DataFrame(m = mean(data.RET), s = std(data.RET), c = length(data.RET))
+	end
 end
 
 # Loading - Uncompressed
