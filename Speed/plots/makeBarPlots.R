@@ -1,3 +1,6 @@
+
+# Speed -------------------------------------------------------------------
+
 library(svglite)
 library(data.table)
 library(RColorBrewer)
@@ -38,32 +41,46 @@ plot_vox <- function(dt, title) {
 }
 
 # Plotting both running times
-loading <- R[operation %in% c("read_uncompressed", "read_compressed"), c("language", "operation", "Median")]
-loading$Median <- loading$Median/min(loading$Median, na.rm = TRUE)
-loading$language <- as.factor(loading$language)
-desired_order <- c("R", "Python", "Julia", "Matlab")
-loading$language <- factor(as.character(loading$language), levels = desired_order)
-loading <- loading[order(language, Median)]
+loading <- rbind(R[operation == "read_uncompressed", c("language", "Median")][order(language)]$Median,
+                 R[operation == "read_compressed", c("language","Median")][order(language)]$Median)
+loading <- loading/min(loading, na.rm = TRUE)
+rownames(loading) <- c("Uncompressed", "Compressed")
+colnames(loading) <- sort(unique(R$language))
+loading <- loading[,names(sort(loading[1,]))]
 
 plot_two <- function(){
   par(mar = c(2,2,2,0))
-  cols <- ifelse(loading$operation == "read_compressed", co, co2)
-  x <- barplot(loading$Median, main = "Loading time relative to fastest", yaxt = "n", 
-               col = cols, ylim = c(0,ceiling(max(loading$Median, na.rm = TRUE))), border = F)
-  
-  posit <- rep(NA,4)
-  for(i in seq(1,4)){
-    posit[i] <- mean(c(x[(i*2)-1], x[i*2]))
-  }
-  
-  axis(1, posit, labels = unique(loading$language), tick = 0)
-  axis(2, seq(0,ceiling(max(loading$Median, na.rm = TRUE))), las = 1)
-  text(x, loading$Median + 0.1, labels = format(round(loading$Median,2), nsmall = 2))
-  legend("topleft", col = c(co2, co), legend = c("Uncompressed", "Compressed"),
+  x <- barplot(loading, main = "Loading time relative to fastest", yaxt = "n", beside = TRUE,
+               col = c(co,co2), ylim = c(0,ceiling(max(loading, na.rm = TRUE))), border = F)
+  axis(2, seq(0,ceiling(max(loading, na.rm = TRUE))), las = 1)
+  text(x, loading + 0.1, labels = format(round(loading,2), nsmall = 2))
+  legend("topleft", col = c(co, co2), legend = c("Uncompressed", "Compressed"),
          pch = 15, bty = "n")
-  if (is.na(loading$Median[length(loading$Median)])) text(x[length(x)], 2, "Matlab \n cannot \n read \n compressed \n files", srt=0)
+  if (is.na(loading["Compressed", "Matlab"])) text(x[length(x)]+0.2, 2, "Matlab \n cannot \n read \n compressed \n files", srt=0, cex = 0.8)
+} 
+
+
+# GARCH -------------------------------------------------------------------
+
+garch <- fread("../garch/x.csv")
+garch$time <- garch$time/min(garch$time)
+garch <- garch[order(time), c("language", "time")]
+garch$language <- c("C", "Rcpp", "Numba", "Julia", "Matlab", "R", "Python")
+
+plot_garch <- function() {
+  par(mar = c(2.5,3.5,2,0))
+  x <- barplot(garch$time, names.arg = garch$language,  log = "y",
+               col = co, border = F, yaxt = "n", las = 1, ylim = c(0.5, 500),
+               main = "Calculation of GARCH log likelihood \n Relative to C")
+  offset <- rep(0.1,length(garch$time))
+  offset[length(garch$time)] <- 0
+  text(x-offset, garch$time*1.2, labels = format(round(garch$time,2), nsmall = 2))
+  Ticks<-c(1,2,5,10, 20, 50, 100, 250, 500)
+  axis(2,at = Ticks, las = 1)
 }
-plot_two()
+
+# Saving ------------------------------------------------------------------
+
 
 # Parameters size
 wid = 500
@@ -86,8 +103,13 @@ plot_vox(process, paste("Annual mean and sd by year and firm", "\n", "Processing
 dev.off()
 
 png("png_small/reading_time.png", width = wid, height = hei,
-    units = "px", pointsize = 14)
+    units = "px", pointsize = 12)
 plot_two()
+dev.off()
+
+png("png_small/garch.png", width = wid, height = hei,
+    units = "px", pointsize = 12)
+plot_garch()
 dev.off()
 
 # Large png
@@ -111,6 +133,11 @@ png("png_large/reading_time.png", width = wid*2, height = hei*2,
 plot_two()
 dev.off()
 
+png("png_large/garch.png", width = wid*2, height = hei*2,
+    units = "px", pointsize = 20)
+plot_garch()
+dev.off()
+
 # Svg
 svglite("svg/uncompressed.svg")
 plot_vox(uncompressed, "Loading time relative to fastest - Uncompressed")
@@ -127,4 +154,9 @@ dev.off()
 svglite("svg/reading_time.svg")
 plot_two()
 dev.off()
+
+svglite("svg/garch.svg")
+plot_garch()
+dev.off()
+
 
