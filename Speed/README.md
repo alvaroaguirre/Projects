@@ -4,4 +4,8 @@ As part of the work I did for the SRC, we wanted to see how fast are the four ma
 
 The project bash code run.sh executes the scripts for each language five times and outputs the elapsed time for reading the compressed file, uncompressed file, and performing a data manipulation (calculating annual mean and standard deviation per PERMNO)
 
-![Rank](plots/png_large/reading_time.png)
+![Rank_speed](plots/png_large/reading_time.png)
+
+To expand on this, we also tested the speed of Julia, Python, R and Matlab, along with the decorated version of Numba, Rcpp, and C, when computing GARCH log likelihood:
+
+![Rank_GARCH](plots/png_large/garch.png)
