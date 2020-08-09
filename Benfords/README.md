@@ -1,5 +1,6 @@
 # Benford's Law
 
-I recently learnt about Benford's Law and found it fascinating! So I did a little test on all 2019 daily stock prices to see if it worked... and it did:
+I recently learnt about Benford's Law and found it fascinating! So I did a little test on all 2019 daily stock prices and the daily new COVID-19 cases, and it worked!
 
-![Benfords](benfords.png)
+![Corona](Covid/benfords.png)
+![Stock](Stock_prices/benfords.png)
