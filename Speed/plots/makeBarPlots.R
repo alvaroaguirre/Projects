@@ -4,10 +4,11 @@
 library(svglite)
 library(data.table)
 library(RColorBrewer)
+col_wb <- '#F6F7EB'
 co <- brewer.pal(7, "Set1")[2]
 co2 <- brewer.pal(7, "Set1")[1]
 
-data <- fread("../speed/x.csv")
+data <- fread("../code/x.csv")
 R <- data[,list(min(time), mean(time), median(time),
            max(time)), keyby = list(language, operation)]
 
@@ -33,11 +34,12 @@ process <- process[order(Median)]
 
 plot_vox <- function(dt, title) {
   par(mar = c(2,2,2,0))
+  par(bg=NA, col.axis = col_wb, col.lab = col_wb, col.main = col_wb, col.sub = col_wb)
   x <- barplot(dt$Median, names.arg = dt$language, main = title, yaxt = "n", 
                col = co, ylim = c(0,ceiling(max(dt$Median, na.rm = TRUE))), border = F)
   axis(2, seq(0,ceiling(max(dt$Median, na.rm = TRUE))), las = 1)
-  text(x, dt$Median + 0.1, labels = format(round(dt$Median,2), nsmall = 2))
-  if (is.na(dt$Median[length(dt$Median)])) text(x[length(x)], 1.5, "Matlab \n cannot \n read \n compressed \n files", srt=0)
+  text(x, dt$Median + 0.1, labels = format(round(dt$Median,2), nsmall = 2), col = col_wb)
+  if (is.na(dt$Median[length(dt$Median)])) text(x[length(x)], 1.5, "Matlab \n cannot \n read \n compressed \n files", srt=0, col = col_wb)
 }
 
 # Plotting both running times
@@ -50,13 +52,14 @@ loading <- loading[,names(sort(loading[1,]))]
 
 plot_two <- function(){
   par(mar = c(2,2,2,0))
+  par(bg=NA, col.axis = col_wb, col.lab = col_wb, col.main = col_wb, col.sub = col_wb)
   x <- barplot(loading, main = "Loading time relative to fastest", yaxt = "n", beside = TRUE,
                col = c(co,co2), ylim = c(0,ceiling(max(loading, na.rm = TRUE))), border = F)
   axis(2, seq(0,ceiling(max(loading, na.rm = TRUE))), las = 1)
-  text(x, loading + 0.1, labels = format(round(loading,2), nsmall = 2))
+  text(x, loading + 0.1, labels = format(round(loading,2), nsmall = 2), col = col_wb)
   legend("topleft", col = c(co, co2), legend = c("Uncompressed", "Compressed"),
-         pch = 15, bty = "n")
-  if (is.na(loading["Compressed", "Matlab"])) text(x[length(x)]+0.2, 2, "Matlab \n cannot \n read \n compressed \n files", srt=0, cex = 0.8)
+         pch = 15, bty = "n", text.col = col_wb)
+  if (is.na(loading["Compressed", "Matlab"])) text(x[length(x)]+0.2, 2, "Matlab \n cannot \n read \n compressed \n files", srt=0, cex = 0.8, col = col_wb)
 } 
 
 
@@ -69,12 +72,13 @@ garch$language <- c("C", "Rcpp", "Numba", "Julia", "Matlab", "R", "Python")
 
 plot_garch <- function() {
   par(mar = c(2.5,3.5,2,0))
+  par(bg=NA, col.axis = col_wb, col.lab = col_wb, col.main = col_wb, col.sub = col_wb)
   x <- barplot(garch$time, names.arg = garch$language,  log = "y",
                col = co, border = F, yaxt = "n", las = 1, ylim = c(0.5, 500),
                main = "Calculation of GARCH log likelihood \n Relative to C")
   offset <- rep(0.1,length(garch$time))
   offset[length(garch$time)] <- 0
-  text(x-offset, garch$time*1.2, labels = format(round(garch$time,2), nsmall = 2))
+  text(x-offset, garch$time*1.2, labels = format(round(garch$time,2), nsmall = 2), col = col_wb)
   Ticks<-c(1,2,5,10, 20, 50, 100, 250, 500)
   axis(2,at = Ticks, las = 1)
 }
