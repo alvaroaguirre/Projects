@@ -2,7 +2,7 @@
 
 cd /Users/alvaroaguirre/Documents/Projects/Covid
 
-python ./covid.py
+/Users/alvaroaguirre/opt/anaconda3/bin/python ./covid.py
 
 cd .. 
 
