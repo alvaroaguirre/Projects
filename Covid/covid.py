@@ -15,7 +15,7 @@ df = df.sort_index().last('30D')
 fig, ax = plt.subplots(figsize=(10,7));
 df.groupby('iso_code').new_cases_smoothed.plot(ax=ax);
 plt.legend();
-plt.title('New deaths last 30 days');
+plt.title('New cases last 30 days');
 plt.savefig('daily_cases_smooth.png', bbox_inches = 'tight');
 
 fig, ax = plt.subplots(figsize=(10,7));
@@ -35,5 +35,5 @@ plt.savefig('daily_deaths.png', bbox_inches = 'tight');
 fig, ax = plt.subplots(figsize=(10,7));
 df.groupby('iso_code').new_cases_smoothed.plot(ax=ax);
 plt.legend();
-plt.title('New deaths last 30 days');
+plt.title('New cases last 30 days');
 plt.savefig('daily_cases_smooth.svg', bbox_inches = 'tight');
