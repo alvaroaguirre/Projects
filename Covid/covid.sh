@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /Users/alvaroaguirre/Documents/Projects/Covid
+
 python ./covid.py
 
 cd .. 
