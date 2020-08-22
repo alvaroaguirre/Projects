@@ -143,23 +143,23 @@ plot_garch()
 dev.off()
 
 # Svg
-svglite("svg/uncompressed.svg")
+svglite("svg/uncompressed.svg", bg = "transparent")
 plot_vox(uncompressed, "Loading time relative to fastest - Uncompressed")
 dev.off()
 
-svglite("svg/compressed.svg")
+svglite("svg/compressed.svg", bg = "transparent")
 plot_vox(compressed, "Loading time relative to fastest - Compressed")
 dev.off()
 
-svglite("svg/processing.svg")
+svglite("svg/processing.svg", bg = "transparent")
 plot_vox(process, paste("Annual mean and sd by year and firm", "\n", "Relative processing time"))
 dev.off()
 
-svglite("svg/reading_time.svg")
+svglite("svg/reading_time.svg", bg = "transparent")
 plot_two()
 dev.off()
 
-svglite("svg/garch.svg")
+svglite("svg/garch.svg", bg = "transparent")
 plot_garch()
 dev.off()
 
