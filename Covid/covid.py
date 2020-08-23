@@ -49,6 +49,27 @@ plt.savefig('daily_deaths.png', bbox_inches = 'tight', transparent=True);
 fig, ax = plt.subplots(figsize=(10,7));
 df.groupby('iso_code').new_cases_smoothed.plot(ax=ax);
 plt.legend(fancybox=True, framealpha=0.2);
-plt.title('New cases last 30 days');
+plt.title('New cases last 30 days\n7-day rolling average');
 plt.text(0.7, 0, today, fontsize=10, transform=plt.gcf().transFigure)
 plt.savefig('daily_cases_smooth.svg', bbox_inches = 'tight', transparent=True);
+
+fig, ax = plt.subplots(figsize=(10,7));
+df.groupby('iso_code').new_cases.plot(ax=ax);
+plt.legend(fancybox=True, framealpha=0.2);
+plt.title('New cases last 30 days');
+plt.text(0.7, 0, today, fontsize=10, transform=plt.gcf().transFigure)
+plt.savefig('daily_cases.svg', bbox_inches = 'tight', transparent=True);
+
+fig, ax = plt.subplots(figsize=(10,7));
+df.groupby('iso_code').new_deaths.plot(ax=ax);
+plt.legend(fancybox=True, framealpha=0.2);
+plt.title('New deaths last 30 days');
+plt.text(0.7, 0, today, fontsize=10, transform=plt.gcf().transFigure)
+plt.savefig('daily_deaths.svg', bbox_inches = 'tight', transparent=True);
+
+fig, ax = plt.subplots(figsize=(10,7));
+df.groupby('iso_code').new_deaths.plot(ax=ax);
+plt.legend(fancybox=True, framealpha=0.2);
+plt.title('New deaths last 30 days\n7-day rolling average');
+plt.text(0.7, 0, today, fontsize=10, transform=plt.gcf().transFigure)
+plt.savefig('daily_deaths_smooth.svg', bbox_inches = 'tight', transparent=True);
