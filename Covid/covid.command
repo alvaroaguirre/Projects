@@ -4,9 +4,7 @@ cd /Users/alvaroaguirre/Documents/Projects/Covid
 
 /Users/alvaroaguirre/opt/anaconda3/bin/python ./covid.py
 
-cd .. 
-
-git add Covid
+git add .
 
 git commit -m 'Daily change'
 
