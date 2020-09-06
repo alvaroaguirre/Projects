@@ -4,9 +4,9 @@
 library(svglite)
 library(data.table)
 library(RColorBrewer)
-col_wb <- '#F6F7EB'
-co <- brewer.pal(7, "Set1")[2]
-co2 <- brewer.pal(7, "Set1")[1]
+col_wb <- '#252627'
+co <- '#BB0A21'
+co2 <- '#4B88A2'
 
 data <- fread("../code/x.csv")
 R <- data[,list(min(time), mean(time), median(time),
