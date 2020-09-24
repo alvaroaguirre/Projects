@@ -25,7 +25,26 @@ df = pd.read_csv(url, error_bad_lines=False)
 df = df.loc[df['iso_code'].isin(['ESP','GBR','PER'])]
 df['date'] = pd.to_datetime(df['date'])
 df.index = pd.DatetimeIndex(df.pop('date'))
+df_all = df
 df = df.sort_index().last('30D')
+
+# All time cases
+fig, ax = plt.subplots(figsize=(10,7));
+df_all.groupby('iso_code').new_cases_smoothed.plot(ax=ax);
+plt.legend(fancybox=True, framealpha=0.2);
+plt.title('Daily new cases - Since beginning\n7-day rolling average');
+plt.text(0.1, -0.02, today, fontsize=10, transform=plt.gcf().transFigure)
+plt.savefig(source_file + '/daily_cases_smooth_all.svg', bbox_inches = 'tight', transparent=True);
+
+fig, ax = plt.subplots(figsize=(10,7));
+df_all.groupby('iso_code').new_deaths_smoothed.plot(ax=ax);
+plt.legend(fancybox=True, framealpha=0.2);
+plt.title('Daily deaths - Since beginning\n7-day rolling average');
+plt.text(0.1, -0.02, today, fontsize=10, transform=plt.gcf().transFigure)
+plt.text(0.1, -0.04, "Note: Negative deaths numbers can come from country data corrections", fontsize=8, transform=plt.gcf().transFigure)
+plt.savefig(source_file + '/daily_deaths_smooth_all.svg', bbox_inches = 'tight', transparent=True);
+
+# Last 30 days
 
 fig, ax = plt.subplots(figsize=(10,7));
 df.groupby('iso_code').new_cases_smoothed.plot(ax=ax);
