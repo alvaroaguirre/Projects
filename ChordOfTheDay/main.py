@@ -79,20 +79,20 @@ def get_random_chord():
 chord_of_day = get_random_chord()
 
 message = """\
-Subject: Chord of the day""" + chord_of_day["name"] + """
+Subject: Chord of the day - """ + chord_of_day["name"] + """
 
 Hi,
 
 The chord of the day is """ + chord_of_day["name"] + """
 
 The positions that construct this type of chord are: 
-""" + str(chord_of_day["positions"]) + """
+""" + str(chord_of_day["positions"]).strip('[]') + """
 
 Its root note is """ + chord_of_day["root"] + """, which has the following major scale:
-""" + str(chord_of_day["major_scale"]) + """
+""" + str(chord_of_day["major_scale"]).strip('[]') + """
 
 And the notes that compose """ + chord_of_day["name"] + """ are:
-""" + str(chord_of_day["notes"]) + """
+""" + str(chord_of_day["notes"]).strip('[]') + """
 
 Go build it on the guitar! You can start on fret """ + str(in_string(chord_of_day["root"], "E")) + """ of the 6-th string, or fret """ + str(in_string(chord_of_day["root"], "A")) + """ of the 5-th string.
 
