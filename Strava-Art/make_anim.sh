@@ -16,6 +16,4 @@ ffmpeg -y -loglevel error -framerate "$FPS" -i "$FR" -filter_complex \
   "$OUTB.gif"
 # WebM VP9 with alpha: smooth edges, small file.
 ffmpeg -y -loglevel error -framerate "$FPS" -i "$FR" -c:v libvpx-vp9 -pix_fmt yuva420p -b:v 2M -auto-alt-ref 0 "$OUTB.webm"
-# ProRes 4444 with alpha: best for Premiere / Final Cut / DaVinci.
-ffmpeg -y -loglevel error -framerate "$FPS" -i "$FR" -c:v prores_ks -profile:v 4444 -pix_fmt yuva444p10le "$OUTB.mov"
 ls -lh "$OUTB".*
