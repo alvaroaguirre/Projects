@@ -12,4 +12,5 @@ node to_png.js
 ```
 
 Strava's own share images aren't available through the API, so the routes are drawn here from each
-activity's polyline. Note: routes reveal where you start runs (e.g. home) – crop or skip those before posting.
+activity's polyline. Runs without GPS (treadmill) get a made-up but realistic-looking route
+(seeded by activity id, so it stays the same between renders). Note: routes reveal where you start runs (e.g. home) – crop or skip those before posting.
