@@ -4,10 +4,23 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
+// One <text> per stats line; first line bold, last (date) a touch dimmer.
+function textLines(it) {
+  let y = it.ty, out = '';
+  it.lines.forEach((t, k) => {
+    const size = it.fs * it.sizes[k];
+    if (k > 0) y += size * it.gap;
+    const weight = k === 0 ? 800 : k === it.lines.length - 1 ? 500 : 600;
+    const fill = k === it.lines.length - 1 ? ' fill="#e6e6e6"' : '';
+    out += `<text x="${it.cx.toFixed(1)}" y="${y.toFixed(1)}" font-size="${size.toFixed(1)}" font-weight="${weight}"${fill}>${t}</text>`;
+  });
+  return out;
+}
+
 (async () => {
   const specPath = process.argv[2];
   const spec = JSON.parse(fs.readFileSync(specPath, 'utf8'));
-  const dir = path.join(path.dirname(specPath), `frames_${spec.width}x${spec.height}`);
+  const dir = path.join(path.dirname(specPath), `frames_${spec.tag || spec.width + 'x' + spec.height}`);
   fs.rmSync(dir, { recursive: true, force: true });
   fs.mkdirSync(dir, { recursive: true });
 
@@ -17,9 +30,7 @@ const path = require('path');
     `stroke-linejoin="round" stroke-linecap="round" opacity="0"/>` +
     `<g id="t${i}" opacity="0" text-anchor="middle" fill="#fff" stroke="rgba(0,0,0,0.65)" ` +
     `stroke-width="${(it.fs * 0.18).toFixed(1)}" paint-order="stroke" stroke-linejoin="round">` +
-    `<text x="${it.cx.toFixed(1)}" y="${it.ty.toFixed(1)}" font-size="${it.fs.toFixed(1)}" font-weight="800">${it.lines[0]}</text>` +
-    `<text x="${it.cx.toFixed(1)}" y="${(it.ty + it.fs * 1.05).toFixed(1)}" font-size="${(it.fs * 0.84).toFixed(1)}" font-weight="600">${it.lines[1]}</text>` +
-    `<text x="${it.cx.toFixed(1)}" y="${(it.ty + it.fs * 2.05).toFixed(1)}" font-size="${(it.fs * 0.8).toFixed(1)}" fill="#e6e6e6">${it.lines[2]}</text>` +
+    textLines(it) +
     `</g>`).join('');
   const html = `<html><body style="margin:0;background:transparent">
     <svg xmlns="http://www.w3.org/2000/svg" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" width="${spec.width}" height="${spec.height}">${paths}</svg></body></html>`;
