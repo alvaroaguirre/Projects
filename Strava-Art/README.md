@@ -23,4 +23,4 @@ activity's polyline. Runs without GPS (treadmill) get a made-up but realistic-lo
 
 Every run draws itself in, in random order, scattered across the frame (size scales with distance),
 its stats fading in underneath; then the full collage holds for 2.5 s. Outputs in `out/anim/`: `.gif` (hard-edged 1-bit transparency)
-and `.webm` (VP9 alpha, smooth edges). Each route is labelled with distance, pace, duration and date.
+and `.webm` (VP9 alpha, smooth edges), plus `_small.gif` (720 wide, ~5 MB) and `.mp4` (black background, ~400 KB, plays anywhere). Each route is labelled with distance, pace, duration and date.
